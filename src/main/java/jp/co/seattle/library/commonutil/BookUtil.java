@@ -34,12 +34,12 @@ public class BookUtil {
 		}
 
 		// ISBNのバリデーションチェック
-		if (!(isValidIsbn(bookInfo.getIsbn()))){
+		if (!isValidIsbn(bookInfo.getIsbn())){
 			errorList.add(ISBN_ERROR);
 		}
 
 		// 出版日の形式チェック
-		if (checkDate(bookInfo.getPublishDate()) == false) {
+		if (!checkDate(bookInfo.getPublishDate())) {
 			errorList.add(PUBLISHDATE_ERROR);
 		}
 
@@ -106,9 +106,9 @@ public class BookUtil {
 		String publisher = bookInfo.getPublisher();
 		String publishdate = bookInfo.getPublishDate();
 		if (title.isEmpty() && author.isEmpty() && publisher.isEmpty() && publishdate.isEmpty()) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		}
 	}
 }
