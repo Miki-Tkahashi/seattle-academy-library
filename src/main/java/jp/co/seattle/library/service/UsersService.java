@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 
+import jp.co.seattle.library.dto.BookDetailsInfo;
 import jp.co.seattle.library.dto.UserInfo;
 import jp.co.seattle.library.rowMapper.UserCountRowMapper;
 
@@ -41,6 +42,25 @@ public class UsersService {
 	 * @param password パスワード
 	 * @return ユーザー情報
 	 */
+	public UserInfo selectUserInfo(String email, String password) {
+		try {
+			String sql = "SELECT email, password FROM users WHERE email = '" + email + "' AND password = '" + password
+					+ "'";
+			UserInfo selectedUserInfo = jdbcTemplate.queryForObject(sql, new UserCountRowMapper());
+			return selectedUserInfo;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	public UserInfo updateBook(String email, String password) {
+		String sql;
+		if (bookInfo.getThumbnailUrl() == null) {
+			// TODO 取得した書籍情報を更新するようにSQLを修正（タスク５）
+			sql = "UPDATE users SET email = ?,password = ? WHERE users.id = ?;";
+			jdbcTemplate.update(sql, userskInfo.getTitle(), bookInfo.getAuthor(), bookInfo.getPublisher(),
+					bookInfo.getPublishDate(), bookInfo.getIsbn(), bookInfo.getDescription(), bookInfo.getBookId());
+		} else {
+	
 	public UserInfo selectUserInfo(String email, String password) {
 		try {
 			String sql = "SELECT email, password FROM users WHERE email = '" + email + "' AND password = '" + password

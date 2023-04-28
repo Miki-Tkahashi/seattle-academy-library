@@ -36,6 +36,10 @@
         <footer>
             <div class="copyright">© 2019 Seattle Consulting Co., Ltd. All rights reserved.</div>
         </footer>
+        <form method="post" action="deleteBook" name="delete">
+            <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
+            <button type="submit" id="reset-btn" class="btn_deleteBook">リセット</button>
+        </form>
     </div>
 </body>
 </html>
