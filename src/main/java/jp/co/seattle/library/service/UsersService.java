@@ -52,4 +52,11 @@ public class UsersService {
 		}
 	}
 
+	public void updateId(UserInfo userInfo) {
+		String sql = "UPDATE users SET password = ? WHERE email = ?;";
+		jdbcTemplate.update(sql, userInfo.getPassword(), userInfo.getEmail());
+
+		// TODO 取得した書籍情報を更新するようにSQLを修正
+
+	}
 }
