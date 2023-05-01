@@ -32,14 +32,13 @@
             <div class="authorization_navi">
                 <label class="authorization_text">まだアカウントをお持ちでないですか？</label> <a class="authorization_link marker" href="<%=request.getContextPath()%>/newAccount">アカウント作成</a>
             </div>
+            <div class="authorization_navi">
+                <label class="authorization_text">パスワードをお忘れの方</label> <a class="authorization_link marker" href="<%=request.getContextPath()%>/passwordReset">パスワードリセット</a>
+            </div>
         </div>
         <footer>
             <div class="copyright">© 2019 Seattle Consulting Co., Ltd. All rights reserved.</div>
         </footer>
-        <form method="post" action="deleteBook" name="delete">
-            <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
-            <button type="submit" id="reset-btn" class="btn_deleteBook">リセット</button>
-        </form>
     </div>
 </body>
 </html>
